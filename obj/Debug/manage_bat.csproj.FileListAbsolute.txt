@@ -1,0 +1,9 @@
+L:\программирование\manage_bat\obj\Debug\manage_bat.csproj.AssemblyReference.cache
+L:\программирование\manage_bat\obj\Debug\manage_bat.Properties.Resources.resources
+L:\программирование\manage_bat\obj\Debug\manage_bat.csproj.GenerateResource.cache
+L:\программирование\manage_bat\obj\Debug\manage_bat.csproj.CoreCompileInputs.cache
+L:\программирование\manage_bat\bin\Debug\manage_bat.exe.config
+L:\программирование\manage_bat\bin\Debug\manage_bat.exe
+L:\программирование\manage_bat\bin\Debug\manage_bat.pdb
+L:\программирование\manage_bat\obj\Debug\manage_bat.exe
+L:\программирование\manage_bat\obj\Debug\manage_bat.pdb
