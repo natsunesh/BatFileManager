@@ -31,6 +31,34 @@ public class BatFileManager
 {
     private readonly List<BatFile> _batFiles = new List<BatFile>();
 
+    // Добавлено поле для хранения пути к папке BatFiles
+    private readonly string _folder; // *** Добавлено ***
+
+    // Конструктор с загрузкой батников из папки
+    public BatFileManager()
+    {
+        string desktop = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
+        _folder = Path.Combine(desktop, "BatFiles"); // *** Добавлено ***
+        LoadBatFilesFromFolder(); // *** Добавлено ***
+    }
+
+    // Новый метод для загрузки батников из папки
+    private void LoadBatFilesFromFolder() // *** Добавлено ***
+    {
+        if (!Directory.Exists(_folder))
+            Directory.CreateDirectory(_folder);
+
+        var batFilePaths = Directory.GetFiles(_folder, "*.bat");
+        foreach (var path in batFilePaths)
+        {
+            // Создаём BatFile с пустым списком действий (можно расширить)
+            var batFile = new BatFile(path, new List<IAction>());
+
+            if (!_batFiles.Contains(batFile))
+                _batFiles.Add(batFile);
+        }
+    }
+
     public List<BatFile> GetBatFiles() => new List<BatFile>(_batFiles);
 
     public BatFile CreateBatFile(List<IAction> actions, string fileName)
@@ -40,7 +68,7 @@ public class BatFileManager
         if (string.IsNullOrWhiteSpace(fileName))
             throw new ArgumentException("Имя файла не указано");
 
-        foreach (char c in System.IO.Path.GetInvalidFileNameChars())
+        foreach (char c in Path.GetInvalidFileNameChars())
             fileName = fileName.Replace(c.ToString(), "");
         if (!fileName.EndsWith(".bat", StringComparison.OrdinalIgnoreCase))
             fileName += ".bat";
@@ -49,16 +77,16 @@ public class BatFileManager
         foreach (var action in actions)
             content.AppendLine(action.ToBatCommand());
 
-        string desktop = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
-        string folder = System.IO.Path.Combine(desktop, "BatFiles");
-        if (!System.IO.Directory.Exists(folder))
-            System.IO.Directory.CreateDirectory(folder);
+        // Используем поле _folder вместо локальной переменной
+        if (!Directory.Exists(_folder)) // *** Изменено ***
+            Directory.CreateDirectory(_folder); // *** Изменено ***
 
-        string filePath = System.IO.Path.Combine(folder, fileName);
+        string filePath = Path.Combine(_folder, fileName); // *** Изменено ***
 
-        System.IO.File.WriteAllText(filePath, content.ToString());
+        File.WriteAllText(filePath, content.ToString());
         var batFile = new BatFile(filePath, actions);
-        _batFiles.Add(batFile);
+        if (!_batFiles.Contains(batFile)) // *** Добавлено ***
+            _batFiles.Add(batFile); // *** Добавлено ***
         return batFile;
     }
 
@@ -66,6 +94,12 @@ public class BatFileManager
     {
         if (!File.Exists(batFile.FilePath))
             throw new FileNotFoundException("Файл не найден", batFile.FilePath);
-        System.Diagnostics.Process.Start(batFile.FilePath);
+
+        var processInfo = new System.Diagnostics.ProcessStartInfo
+        {
+            FileName = batFile.FilePath,
+            UseShellExecute = true // *** Добавлено для корректного запуска ***
+        };
+        System.Diagnostics.Process.Start(processInfo);
     }
 }
