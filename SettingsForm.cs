@@ -170,7 +170,7 @@ partial class SettingsForm
         // 
         // SettingsForm
         // 
-        this.ClientSize = new System.Drawing.Size(380, 335);
+        this.ClientSize = new System.Drawing.Size(380, 380);
         this.Controls.Add(this.button3);
         this.Controls.Add(this.listBox1);
         this.Controls.Add(this.button2);
