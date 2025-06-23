@@ -16,3 +16,13 @@ L:\программирование\manage_bat\BatFileManager\obj\Debug\manage_b
 L:\программирование\manage_bat\BatFileManager\obj\Debug\manage_bat.csproj.CoreCompileInputs.cache
 L:\программирование\manage_bat\BatFileManager\obj\Debug\manage_bat.exe
 L:\программирование\manage_bat\BatFileManager\obj\Debug\manage_bat.pdb
+L:\программирование\BatFileManager\bin\Debug\manage_bat.exe.config
+L:\программирование\BatFileManager\bin\Debug\manage_bat.exe
+L:\программирование\BatFileManager\bin\Debug\manage_bat.pdb
+L:\программирование\BatFileManager\obj\Debug\manage_bat.csproj.AssemblyReference.cache
+L:\программирование\BatFileManager\obj\Debug\manage_bat.Properties.Resources.resources
+L:\программирование\BatFileManager\obj\Debug\SettingsForm.resources
+L:\программирование\BatFileManager\obj\Debug\manage_bat.csproj.GenerateResource.cache
+L:\программирование\BatFileManager\obj\Debug\manage_bat.csproj.CoreCompileInputs.cache
+L:\программирование\BatFileManager\obj\Debug\manage_bat.exe
+L:\программирование\BatFileManager\obj\Debug\manage_bat.pdb

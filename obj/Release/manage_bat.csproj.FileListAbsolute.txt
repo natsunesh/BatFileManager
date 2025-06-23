@@ -1,0 +1,10 @@
+L:\программирование\BatFileManager\bin\Release\manage_bat.exe.config
+L:\программирование\BatFileManager\bin\Release\manage_bat.exe
+L:\программирование\BatFileManager\bin\Release\manage_bat.pdb
+L:\программирование\BatFileManager\obj\Release\manage_bat.csproj.AssemblyReference.cache
+L:\программирование\BatFileManager\obj\Release\manage_bat.Properties.Resources.resources
+L:\программирование\BatFileManager\obj\Release\SettingsForm.resources
+L:\программирование\BatFileManager\obj\Release\manage_bat.csproj.GenerateResource.cache
+L:\программирование\BatFileManager\obj\Release\manage_bat.csproj.CoreCompileInputs.cache
+L:\программирование\BatFileManager\obj\Release\manage_bat.exe
+L:\программирование\BatFileManager\obj\Release\manage_bat.pdb
