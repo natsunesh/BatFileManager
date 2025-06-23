@@ -32,18 +32,18 @@ public class BatFileManager
     private readonly List<BatFile> _batFiles = new List<BatFile>();
 
     // Добавлено поле для хранения пути к папке BatFiles
-    private readonly string _folder; // *** Добавлено ***
+    private readonly string _folder; 
 
     // Конструктор с загрузкой батников из папки
     public BatFileManager()
     {
         string desktop = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
-        _folder = Path.Combine(desktop, "BatFiles"); // *** Добавлено ***
-        LoadBatFilesFromFolder(); // *** Добавлено ***
+        _folder = Path.Combine(desktop, "BatFiles"); 
+        LoadBatFilesFromFolder();  
     }
 
     // Новый метод для загрузки батников из папки
-    private void LoadBatFilesFromFolder() // *** Добавлено ***
+    private void LoadBatFilesFromFolder()  
     {
         if (!Directory.Exists(_folder))
             Directory.CreateDirectory(_folder);
@@ -85,8 +85,8 @@ public class BatFileManager
 
         File.WriteAllText(filePath, content.ToString());
         var batFile = new BatFile(filePath, actions);
-        if (!_batFiles.Contains(batFile)) // *** Добавлено ***
-            _batFiles.Add(batFile); // *** Добавлено ***
+        if (!_batFiles.Contains(batFile))  
+            _batFiles.Add(batFile);  
         return batFile;
     }
 
