@@ -1,4 +1,5 @@
 using System;
+using System.Drawing;
 using System.Windows.Forms;
 
 
@@ -15,6 +16,7 @@ namespace manage_bat
             button1.Click += (s, e) => RunSelectedBat();
             Settings.Click += OpenSettings;
             RefreshBatList();
+            this.Icon = new Icon("L:\\программирование\\BatFileManager\\icon_main.ico");
         }
 
         private void RunSelectedBat()
