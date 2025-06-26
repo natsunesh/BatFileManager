@@ -105,9 +105,24 @@ public class BatFileManager
 
         var processInfo = new System.Diagnostics.ProcessStartInfo
         {
-            FileName = batFile.FilePath,
-            UseShellExecute = true // *** Добавлено для корректного запуска ***
+            FileName = "cmd.exe",
+            Arguments = $"/k chcp 1251 >nul && \"{batFile.FilePath}\" > debug_log.txt 2>&1 && type debug_log.txt && pause",
+            UseShellExecute = false,
+            CreateNoWindow = false
+            
         };
-        System.Diagnostics.Process.Start(processInfo);
+
+        try
+        {
+            System.Diagnostics.Process.Start(processInfo);
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"Ошибка запуска батника: {ex.Message}");
+            throw;
+        }
     }
+
+
 }
+
