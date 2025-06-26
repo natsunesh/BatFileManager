@@ -16,7 +16,9 @@ namespace manage_bat
             button1.Click += (s, e) => RunSelectedBat();
             Settings.Click += OpenSettings;
             RefreshBatList();
-            this.Icon = new Icon("L:\\программирование\\BatFileManager\\icon_main.ico");
+
+            this.FormBorderStyle = FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
         }
 
         private void RunSelectedBat()

@@ -13,7 +13,9 @@ public partial class SettingsForm : Form
     {
         InitializeComponent();
         comboBox1.SelectedIndex = 0;
-        
+
+        this.FormBorderStyle = FormBorderStyle.FixedSingle;
+        this.MaximizeBox = false;
     }
 
     public void SetManager(BatFileManager manager) => _manager = manager;

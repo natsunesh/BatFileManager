@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Text;
 
 public class BatFile
 {
@@ -74,19 +75,26 @@ public class BatFileManager
             fileName += ".bat";
 
         var content = new System.Text.StringBuilder();
+
+        // Добавляем в начало батника команды для корректной работы с русским языком
+        content.AppendLine("@echo off");
+        content.AppendLine("chcp 1251 >nul");
+
+        // Добавляем команды из действий
         foreach (var action in actions)
             content.AppendLine(action.ToBatCommand());
 
-        // Используем поле _folder вместо локальной переменной
-        if (!Directory.Exists(_folder)) // *** Изменено ***
-            Directory.CreateDirectory(_folder); // *** Изменено ***
+        if (!Directory.Exists(_folder))
+            Directory.CreateDirectory(_folder);
 
-        string filePath = Path.Combine(_folder, fileName); // *** Изменено ***
+        string filePath = Path.Combine(_folder, fileName);
 
-        File.WriteAllText(filePath, content.ToString());
+        // Записываем файл в кодировке Windows-1251
+        File.WriteAllText(filePath, content.ToString(), Encoding.GetEncoding(1251));
+
         var batFile = new BatFile(filePath, actions);
-        if (!_batFiles.Contains(batFile))  
-            _batFiles.Add(batFile);  
+        if (!_batFiles.Contains(batFile))
+            _batFiles.Add(batFile);
         return batFile;
     }
 
