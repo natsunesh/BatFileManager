@@ -106,7 +106,7 @@ public class BatFileManager
         var processInfo = new System.Diagnostics.ProcessStartInfo
         {
             FileName = "cmd.exe",
-            Arguments = $"/k chcp 1251 >nul && \"{batFile.FilePath}\" > debug_log.txt 2>&1 && type debug_log.txt && pause",
+            Arguments = $"/k chcp 1251 >nul && \"{batFile.FilePath}\" ",
             UseShellExecute = false,
             CreateNoWindow = false
             
