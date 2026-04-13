@@ -36,3 +36,4 @@ L:\Programming\BatFileManager\obj\Debug\manage_bat.csproj.GenerateResource.cache
 L:\Programming\BatFileManager\obj\Debug\manage_bat.csproj.CoreCompileInputs.cache
 L:\Programming\BatFileManager\obj\Debug\manage_bat.exe
 L:\Programming\BatFileManager\obj\Debug\manage_bat.pdb
+L:\программирование\BatFileManager\obj\Debug\manage_bat.exe.config
