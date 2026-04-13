@@ -8,3 +8,4 @@ L:\программирование\BatFileManager\obj\Release\manage_bat.csproj
 L:\программирование\BatFileManager\obj\Release\manage_bat.csproj.CoreCompileInputs.cache
 L:\программирование\BatFileManager\obj\Release\manage_bat.exe
 L:\программирование\BatFileManager\obj\Release\manage_bat.pdb
+L:\программирование\BatFileManager\obj\Release\manage_bat.exe.config

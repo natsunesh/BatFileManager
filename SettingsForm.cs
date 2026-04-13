@@ -40,6 +40,39 @@ public partial class SettingsForm : Form
                 if (int.TryParse(param, out int sec)) action = new DelayAction(sec);
                 else MessageBox.Show("Некорректное время!");
                 break;
+            case "Копировать файл":
+                var parts = param.Split(new char[] { '>' }, 2, StringSplitOptions.RemoveEmptyEntries);  
+                if (parts.Length == 2) action = new CopyFileAction(parts[0].Trim(), parts[1].Trim());
+                else MessageBox.Show("Формат: путь1 > путь2");
+                break;
+
+            case "Переместить файл":
+                parts = param.Split(new char[] { '>' }, 2, StringSplitOptions.RemoveEmptyEntries);    
+                if (parts.Length == 2) action = new MoveFileAction(parts[0].Trim(), parts[1].Trim());
+                else MessageBox.Show("Формат: путь1 > путь2");
+                break;
+
+            case "Удалить файл":
+                action = new DeleteFileAction(param);
+                break;
+
+            case "Создать папку":
+                action = new CreateFolderAction(param);
+                break;
+
+            case "Список процессов":
+                action = new ListProcessesAction();
+                break;
+
+            case "Выключить ПК":
+                if (int.TryParse(param, out int minutes) && minutes >= 0)
+                    action = new ShutdownAction(minutes);
+                else action = new ShutdownAction(); // 0 мин по умолчанию
+                break;
+
+            case "Очистить экран":
+                action = new ClearScreenAction();
+                break;
         }
 
         if (action != null)
@@ -134,7 +167,13 @@ partial class SettingsForm
         // comboBox1
         // 
         this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-        this.comboBox1.Items.AddRange(new object[] { "Открыть сайт", "Закрыть процесс", "Запустить программу", "Открыть папку", "Поставить задержку" });
+        this.comboBox1.Items.AddRange(new object[] {
+            "Открыть сайт", "Закрыть процесс", 
+            "Запустить программу", "Открыть папку", 
+            "Поставить задержку", "Копировать файл", 
+            "Переместить файл", "Удалить файл", 
+            "Создать папку", "Список процессов", 
+            "Выключить ПК", "Очистить экран" });
         this.comboBox1.Location = new System.Drawing.Point(12, 12);
         this.comboBox1.Size = new System.Drawing.Size(150, 21);
         // 
